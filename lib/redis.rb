@@ -1900,7 +1900,7 @@ class Redis
     Rails.logger.info " XXREDIS in hget"
     begin
       raise e 
-    rescue
+    rescue Exception => e
       Rails.logger.info e.backtrace.join "\n"
     end
     synchronize do |client|
