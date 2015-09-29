@@ -1897,7 +1897,7 @@ class Redis
   # @param [String] field
   # @return [String]
   def hget(key, field)
-    raise "xxx"
+    puts caller
     synchronize do |client|
       client.call([:hget, key, field])
     end
