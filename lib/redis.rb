@@ -1897,7 +1897,12 @@ class Redis
   # @param [String] field
   # @return [String]
   def hget(key, field)
-    puts caller
+    Rails.logger.info " XXREDIS in hget"
+    begin
+      raise e 
+    rescue
+      Rails.logger.info e.backtrace.join "\n"
+    end
     synchronize do |client|
       client.call([:hget, key, field])
     end
